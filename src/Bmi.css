@@ -1,0 +1,104 @@
+body {
+  font-family: "Poppins", sans-serif;
+  background: linear-gradient(to bottom right, #f9f9ff, #e6f7ff);
+  margin: 0;
+  padding: 0;
+}
+
+.bmi-container {
+  max-width: 480px;
+  margin: 50px auto;
+  background: #ffffff;
+  padding: 40px;
+  border-radius: 20px;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+.bmi-container h1 {
+  font-size: 32px;
+  margin-bottom: 25px;
+  color: #333;
+}
+
+.input-group {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.input-block {
+  text-align: left;
+}
+
+label {
+  font-weight: 600;
+  margin-bottom: 5px;
+  display: block;
+  color: #444;
+}
+
+input {
+  width: 100%;
+  padding: 12px;
+  font-size: 16px;
+  border: 2px solid #ccc;
+  border-radius: 12px;
+  outline: none;
+  transition: 0.3s;
+}
+
+input:focus {
+  border-color: #5aa3ff;
+}
+
+button {
+  padding: 14px;
+  font-size: 16px;
+  background: #5aa3ff;
+  color: #fff;
+  font-weight: bold;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+button:hover {
+  background: #3e8dfc;
+}
+
+.bmi-value {
+  font-size: 20px;
+  font-weight: 600;
+  margin-top: 25px;
+  color: #333;
+}
+
+.bmi-result {
+  margin-top: 30px;
+}
+
+.bmi-result img {
+  width: 180px;
+  border-radius: 12px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+}
+
+.bmi-result h2 {
+  font-size: 22px;
+  margin-top: 12px;
+  font-weight: 700;
+}
+
+.bmi-result.under h2 {
+  color: #ff6b6b;
+}
+
+.bmi-result.over h2 {
+  color: #ff922b;
+}
+
+.bmi-result.normal h2 {
+  color: #2bcb77;
+}
