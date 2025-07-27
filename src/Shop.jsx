@@ -32,7 +32,7 @@ export default function Shop() {
     for (let i = 0; i < cart.length; i++) { total = total + cart[i].price; }
     return (<>
         <header>
-            <h1>Wordnest</h1>
+            <h1>Wordnest!!</h1>
             <p>Your Gateway to Endless Stories</p>
             <nav>
                 <a href="#">Home</a>
