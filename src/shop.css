@@ -1,0 +1,305 @@
+/* ========== VARIABLES ========== */
+:root {
+  --color-bg: #ffffff;
+  --color-primary: #0066ff;
+  --color-primary-hover: #004bb5;
+  --color-text-primary: #222222;
+  --color-text-secondary: #555555;
+  --color-border: #e0e0e0;
+  --color-shadow-light: rgba(0, 0, 0, 0.05);
+  --color-shadow-hover: rgba(0, 0, 0, 0.12);
+  --radius-base: 12px;
+  --font-primary: 'Poppins', 'Segoe UI', sans-serif;
+  --font-header: 'Montserrat', sans-serif;
+  --transition-fast: 0.25s ease;
+}
+
+/* ========== GLOBAL ========== */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Poppins:wght@400;600&display=swap');
+
+body {
+  font-family: var(--font-primary);
+  background-color: var(--color-bg);
+  margin: 0;
+  color: var(--color-text-primary);
+  line-height: 1.6;
+  font-size: 16px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  animation: fadeInBody 0.5s ease-in;
+}
+
+@keyframes fadeInBody {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+/* ========== HEADER ========== */
+header {
+  background: #f9f9f9;
+  padding: 32px 48px;
+  text-align: center;
+  position: sticky;
+  top: 0;
+  z-index: 110;
+  box-shadow: 0 2px 8px var(--color-shadow-light);
+  animation: slideInTop 0.8s ease;
+  backdrop-filter: saturate(180%) blur(10px);
+  /* ทำให้ header โปร่งแสงนิด ๆ ดูทันสมัย */
+}
+
+@keyframes slideInTop {
+  from { opacity: 0; transform: translateY(-18px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+header h1 {
+  font-family: var(--font-header);
+  font-weight: 700;
+  font-size: 3rem;
+  margin: 0;
+  letter-spacing: 0.06em;
+  color: var(--color-text-primary);
+  text-transform: uppercase;
+  text-shadow: 0 1px 2px rgba(0,0,0,0.05);
+}
+
+header p {
+  color: var(--color-text-secondary);
+  font-style: italic;
+  margin-top: 12px;
+  font-weight: 400;
+  font-size: 1.1rem;
+}
+
+nav {
+  margin-top: 24px;
+  display: flex;
+  justify-content: center;
+  gap: 32px;
+  font-weight: 600;
+}
+
+nav a {
+  text-decoration: none;
+  color: var(--color-text-secondary);
+  font-size: 1.05rem;
+  position: relative;
+  transition: color var(--transition-fast);
+}
+
+nav a::after {
+  content: "";
+  position: absolute;
+  bottom: -6px;
+  left: 0;
+  width: 0;
+  height: 2.5px;
+  background-color: var(--color-primary);
+  transition: width var(--transition-fast);
+  border-radius: 3px;
+}
+
+nav a:hover {
+  color: var(--color-primary);
+}
+
+nav a:hover::after {
+  width: 100%;
+}
+
+/* ========== CONTAINER ========== */
+.page-container {
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 56px 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 72px;
+}
+
+/* ========== SEARCH ========== */
+.searchbox {
+  text-align: center;
+  font-size: 1.2rem;
+  font-weight: 500;
+  color: var(--color-text-secondary);
+}
+
+.searchbox input {
+  padding: 16px 22px;
+  border-radius: var(--radius-base);
+  border: 1.8px solid var(--color-border);
+  width: 380px;
+  font-size: 1.15rem;
+  background-color: var(--color-bg);
+  box-shadow: none;
+  transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  font-family: var(--font-primary);
+}
+
+.searchbox input::placeholder {
+  color: #bbb;
+  font-weight: 400;
+}
+
+.searchbox input:focus {
+  outline: none;
+  border-color: var(--color-primary);
+  box-shadow: 0 0 8px 2px rgba(0, 102, 255, 0.3);
+}
+
+/* ========== BOOK GRID ========== */
+.books-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 32px;
+}
+
+.book-item {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+  background-color: var(--color-bg);
+  border-radius: var(--radius-base);
+  padding: 22px 24px;
+  box-shadow: 0 4px 10px var(--color-shadow-light);
+  transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+  cursor: pointer;
+  will-change: transform;
+}
+
+.book-item:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 24px var(--color-shadow-hover);
+}
+
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.book-thumbnail {
+  width: 100%;
+  height: 320px;
+  object-fit: cover;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.08);
+  transition: box-shadow 0.3s ease;
+}
+
+.book-thumbnail:hover {
+  box-shadow: 0 8px 18px rgba(0,0,0,0.15);
+}
+
+.book-title {
+  font-size: 1.15rem;
+  font-weight: 700;
+  margin-top: 14px;
+  color: var(--color-text-primary);
+  line-height: 1.3;
+  letter-spacing: 0.015em;
+}
+
+.book-author {
+  font-size: 1rem;
+  color: var(--color-text-secondary);
+  margin-top: 6px;
+  font-weight: 500;
+  font-style: italic;
+}
+
+.book-price {
+  margin-top: 16px;
+  color: var(--color-primary);
+  font-weight: 700;
+  font-size: 1.2rem;
+}
+
+/* ========== BUTTON ========== */
+.add-cart-btn {
+  margin-top: auto;
+  padding: 14px 0;
+  background-color: var(--color-primary);
+  color: white;
+  border: none;
+  border-radius: calc(var(--radius-base) / 1.5);
+  cursor: pointer;
+  font-weight: 700;
+  font-size: 1.1rem;
+  transition: background-color var(--transition-fast), box-shadow var(--transition-fast), transform var(--transition-fast);
+  box-shadow: 0 6px 12px rgba(0, 102, 255, 0.4);
+}
+
+.add-cart-btn:hover {
+  background-color: var(--color-primary-hover);
+  box-shadow: 0 10px 22px rgba(0, 75, 181, 0.55);
+  transform: scale(1.06);
+}
+
+/* ========== CART SECTION ========== */
+.cart-title {
+  font-size: 2rem;
+  font-weight: 700;
+  border-bottom: 3px solid var(--color-border);
+  padding-bottom: 14px;
+  color: var(--color-text-primary);
+  letter-spacing: 0.04em;
+}
+
+.cart-container {
+  background-color: var(--color-bg);
+  padding: 32px 36px;
+  border-radius: var(--radius-base);
+  border: 1px solid var(--color-border);
+  box-shadow: 0 4px 14px var(--color-shadow-light);
+}
+
+.cart-item {
+  display: flex;
+  justify-content: space-between;
+  margin: 18px 0;
+  font-weight: 600;
+  color: var(--color-text-primary);
+}
+
+.book-title-cart {
+  max-width: 70%;
+  overflow-wrap: break-word;
+}
+
+.book-price-cart {
+  font-weight: 700;
+  color: var(--color-primary);
+}
+
+.cart-total {
+  margin-top: 28px;
+  font-size: 1.4rem;
+  font-weight: 700;
+  text-align: right;
+  color: var(--color-text-primary);
+  letter-spacing: 0.02em;
+}
+
+.clear-cart-btn {
+  margin-top: 28px;
+  padding: 16px 22px;
+  background-color: #e53935;
+  color: white;
+  border: none;
+  border-radius: calc(var(--radius-base) / 1.5);
+  cursor: pointer;
+  font-weight: 700;
+  font-size: 1.1rem;
+  transition: background-color var(--transition-fast);
+  box-shadow: 0 6px 14px rgba(229, 57, 53, 0.5);
+}
+
+.clear-cart-btn:hover {
+  background-color: #b71c1c;
+  box-shadow: 0 8px 20px rgba(183, 28, 28, 0.7);
+}

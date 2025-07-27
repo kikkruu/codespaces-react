@@ -4,13 +4,16 @@ import './index.css';
 //import App from './App';
 import Counter from './Counter';
 import Bmi from './Bmi';
+import Shop from './Shop';
 import reportWebVitals from './reportWebVitals';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    {<Bmi/>}
-   
+    {<Shop/>}
+    
+
+    {/*<Bmi/>*/}
     {/*<Counter />*/}
     {/*<Hello name = "korawit" age={38}/>*/}
     {/*<Hello name = "Sowachai" age={11}/>*/ }
